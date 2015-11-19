@@ -112,4 +112,8 @@ class rbenv (
 
   Exec['git-clone-rbenv'] -> File[$install_dir]
 
+  anchor { 'rbenv::begin': } ->
+  Class['rbenv::deps'] ->
+  anchor { 'rbenv::end': }
+
 }
